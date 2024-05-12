@@ -11,7 +11,7 @@
     "prepare": "husky",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "lint-staged":"npm run lint & npm run format"
+    "lint-staged":"npm run format & npm run lint"
   },
   "lint-staged": {
     "*.js": [
