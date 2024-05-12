@@ -1,11 +1,12 @@
-$primary: #8cd5f2;
-$secondary: #007dc7;
-$success: #00b55c;
-$info: #3655a6;
-$warning: #edcd00;
-$danger: red;
-$light: #d7eaf2;
-$dark: #02042e;
+$primary: #343659; 
+$dark: #343659;
+$font-family-base: 'Roboto';
+$font-size-root: 16px;  
+
+.blur{
+    backdrop-filter: blur(4px);
+    border-bottom: solid 1px #343659;
+}
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap/scss/functions';

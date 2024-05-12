@@ -1,18 +1,545 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" 
-    type="image/svg+xml" 
-    href="/src/assets/logo.svg" />
-    <meta name="viewport" 
-    content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/assets/logo.svg"
+      sizes="90x90"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
     <title>Click & Claim</title>
-    <meta name="description" 
-    content="" />
+    <meta name="description" content="" />
   </head>
   <body>
-    <script type="module" 
-    src="/main.js"></script>
+    <!-- Loader -->
+    <div class="loader">
+      <img src="/src/assets/puff.svg" alt="Loader" />
+    </div>
+
+    <!-- Loader -->
+    <nav class="navbar sticky-top">
+      <div class="container py-2">
+        <a href="./index.html">
+          <img src="/src/assets/logo.svg" alt="Site Logo" />
+          <img src="/src/assets/logo-text.svg" alt="Site Name" />
+        </a>
+        <div class="vr d-none d-sm-none d-md-none d-lg-flex"></div>
+        <div class="hstack gap-4 d-none d-sm-none d-md-none d-lg-flex">
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Home-Icon.svg" alt="Home Icon" />
+            <span>Home</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Online-Icon.svg" alt="Online Icon" />
+            <span>Auctions</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/About-Icon.svg" alt="About Icon" />
+            <span>About</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Contact-Icon.svg" alt="Contact Icon" />
+            <span>Contact</span>
+          </a>
+        </div>
+        <div
+          class="hstack align-items-center gap-4 d-none d-sm-none d-md-none d-lg-flex"
+        >
+          <form id="search-form">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="search"
+                placeholder="Search anything..."
+                aria-label="Search anything..."
+                aria-describedby="search-icon"
+                required
+              />
+              <span class="input-group-text" id="search-icon" data-form="search-form"
+                ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+              /></span>
+            </div>
+          </form>
+          <a href="/src/pages/login.html" class="btn btn-dark">Login</a>
+        </div>
+        <div class="d-lg-none d-xl-none" id="show-menu">
+          <img src="/src/assets/Bars.svg" alt="Mobile menu toggler Icon" />
+        </div>
+        <div id="hide-menu" class="d-none d-lg-none d-xl-none">
+          <img src="/src/assets/Close.svg" alt="Close menu icon" />
+        </div>
+      </div>
+    </nav>
+
+    <nav
+      class="mobile-menu vstack justify-content-center align-items-center p-5 d-none d-lg-none d-xl-none"
+    >
+      <div class="vstack gap-4 justify-content-end align-items-center">
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        > 
+          <span>Home</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        > 
+          <span>Auctions</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        > 
+          <span>About</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        > 
+          <span>Contact</span>
+        </a>
+      </div>
+      <div
+        class="hstack align-items-center justify-content-center gap-4 flex-fill"
+      >
+        <form id="search-form-mobile">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              name="search"
+              placeholder="Search anything..."
+              aria-label="Search anything..."
+              aria-describedby="search-icon-mobile"
+              required
+            />
+            <span class="input-group-text" id="search-icon-mobile" data-form="search-form-mobile"
+              ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+            /></span>
+          </div>
+        </form>
+        <a href="/src/pages/login.html" class="btn btn-dark">Login</a>
+      </div>
+    </nav>
+    <!-- Mobile menu end -->
+    <main class="content">
+      <div class="welcome-section">
+        <div class="container">
+          <div class="row py-5">
+            <div class="col-sm-12 col-md-6 col-lg-6 mb-5">
+              <div class="vstack gap-3 justify-content-center h-100">
+                <h1>
+                  Launch your own products with our marketplace and sellout in
+                  minutes.
+                </h1>
+                <p>
+                  Grow your product brands with zero technical expertise, creator &
+                  enterprise friendly features, complete customization, and tons
+                  of integrations.
+                </p>
+                <div class="hstack gap-4">
+                  <a
+                    href=""
+                    class="btn btn-dark btn-outline-light text-decoration-none"
+                    >Get Started</a
+                  >
+                  <a href="" class="btn btn-outline-light text-decoration-none"
+                    >Create</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <img
+                src="/src/assets/electronics-product-04.jpg"
+                alt="Home Image"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <div class="hstack mb-3 align-items-center">
+          <h4 class="mb-0 text-uppercase fw-bolder">Latest auction items</h4>
+          <a
+            class="hstack ms-auto text-decoration-none align-content-center gap-2"
+            href="/src/pages/shop.html"
+          >
+            <h4 class="mb-0 text-uppercase d-none d-md-block d-xl-block">
+              View all
+            </h4>
+            <img src="/src/assets/Arrow-right.svg" alt="Arrow right icon" />
+          </a>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div class="product rounded border border-1 border-light p-3">
+              <div class="product-image-container">
+                <img
+                  src="/src/assets/electronics-product-08-600x600.jpg"
+                  class="product-image"
+                  alt="Product Image"
+                />
+                <div class="product-date hstack">
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">DAY</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">HRS</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">MIN</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">SEC</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="product-details pt-4 vstack gap-2">
+                <h4 class="fs-5 d-inline text-truncate">
+                  Vintage record player
+                </h4>
+                <a
+                  href="/src/pages/single-product.html?id=1"
+                  class="btn btn-dark btn-outline-light align-self-start"
+                  >Bid now</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div class="product rounded border border-1 border-light p-3">
+              <div class="product-image-container">
+                <img
+                  src="/src/assets/electronics-product-10-600x600.jpg"
+                  class="product-image"
+                  alt="Product Image"
+                />
+                <div class="product-date hstack">
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">DAY</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">HRS</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">MIN</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">SEC</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="product-details pt-4 vstack gap-2">
+                <h4 class="fs-5 d-inline text-truncate">
+                  4K TV and Surround Sound System
+                </h4>
+                <a
+                  href="/src/pages/single-product.html?id=1"
+                  class="btn btn-dark btn-outline-light align-self-start"
+                  >Bid now</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div class="product rounded border border-1 border-light p-3">
+              <div class="product-image-container">
+                <img
+                  src="/src/assets/electronics-product-05-600x600.jpg"
+                  class="product-image"
+                  alt="Product Image"
+                />
+                <div class="product-date hstack">
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">DAY</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">HRS</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">MIN</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">SEC</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="product-details pt-4 vstack gap-2">
+                <h4 class="fs-5 d-inline text-truncate">
+                  Vintage radio player
+                </h4>
+                <a
+                  href="/src/pages/single-product.html?id=1"
+                  class="btn btn-dark btn-outline-light align-self-start"
+                  >Bid now</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div class="product rounded border border-1 border-light p-3">
+              <div class="product-image-container">
+                <img
+                  src="/src/assets/electronics-product-06-600x600.jpg"
+                  class="product-image"
+                  alt="Product Image"
+                />
+                <div class="product-date hstack">
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">DAY</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">HRS</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">MIN</h6>
+                  </div>
+                  <div class="vstack date-sep">
+                    <img
+                      src="/src/assets/More-Vert.svg"
+                      alt="More Verticle Icon"
+                    />
+                  </div>
+                  <div class="vstack justify-content-center align-items-center">
+                    <h6 class="value">04</h6>
+                    <h6 class="type">SEC</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="product-details pt-4 vstack gap-2">
+                <h4 class="fs-5 d-inline text-truncate">Camera and Lens</h4>
+                <a
+                  href="/src/pages/single-product.html?id=1"
+                  class="btn btn-dark btn-outline-light align-self-start"
+                  >Bid now</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Create and sell your products</h4>
+        <div class="row mb-5 pt-5">
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div
+              class="onboarding position-relative rounded border border-1 border-light p-4"
+            >
+              <img
+                src="/src/assets/shape-7.png"
+                alt="Onboarding step image 1"
+                class="onboarding-image position-absolute"
+              />
+              <div class="step text-uppercase mb-3">step - 1</div>
+              <h4 class="title mb-3">Set up your account</h4>
+              <div class="desc mb-3">
+                Set up your account with just a few clicks and start exploring
+                our platform today!
+              </div>
+              <a href="/src/pages/login.html"
+                ><img src="/src/assets/Arrow-right.svg" alt="Arrow right icon"
+              /></a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div
+              class="onboarding position-relative rounded border border-1 border-light p-4"
+            >
+              <img
+                src="/src/assets/shape-1.png"
+                alt="Onboarding step image 1"
+                class="onboarding-image position-absolute"
+              />
+              <div class="step text-uppercase mb-3">step - 2</div>
+              <h4 class="title mb-3">Create your collection</h4>
+              <div class="desc mb-3">
+                Whether it's rare antiques, fine art, or modern gadgets,
+                assemble your prized items in a collection.
+              </div>
+              <a href="/src/pages/login.html"
+                ><img src="/src/assets/Arrow-right.svg" alt="Arrow right icon"
+              /></a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div
+              class="onboarding position-relative rounded border border-1 border-light p-4"
+            >
+              <img
+                src="/src/assets/shape-5.png"
+                alt="Onboarding step image 1"
+                class="onboarding-image position-absolute"
+              />
+              <div class="step text-uppercase mb-3">step - 3</div>
+              <h4 class="title mb-3">Add your products</h4>
+              <div class="desc mb-3">
+                Seamlessly upload your items, from timeless classics to
+                cutting-edge innovations.
+              </div>
+              <a href="/src/pages/login.html"
+                ><img src="/src/assets/Arrow-right.svg" alt="Arrow right icon"
+              /></a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-5">
+            <div
+              class="onboarding position-relative rounded border border-1 border-light p-4"
+            >
+              <img
+                src="/src/assets/shape-6.png"
+                alt="Onboarding step image 1"
+                class="onboarding-image position-absolute"
+              />
+              <div class="step text-uppercase mb-3">step - 4</div>
+              <h4 class="title mb-3">Sell your products</h4>
+              <div class="desc mb-3">
+                With a range of categories to choose from, you can reach the
+                perfect audience for your products
+              </div>
+              <a href="/src/pages/login.html"
+                ><img src="/src/assets/Arrow-right.svg" alt="Arrow right icon"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="hstack">
+      <div class="container hstack">
+        <p class="mb-0">&copy; 2024 • All rights reserved by Click & Claim</p>
+        <div class="hstack ms-auto gap-4">
+          <a
+            href="https://facebook.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Facebook.svg" alt="Facebook Icon"
+          /></a>
+          <a
+            href="https://linkedin.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Linkedin.svg" alt="Linkedin Icon"
+          /></a>
+          <a
+            href="https://instagram.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Instagram.svg" alt="Instagram Icon"
+          /></a>
+          <a href="https://x.com" class="footer-social-icons" target="_blank"
+            ><img src="/src/assets/X.svg" alt="X Icon"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
