@@ -28,17 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   searchIcon.addEventListener('click', () => {
     if (searchForm.checkValidity()) searchForm.submit()
-    else  
-        searchForm
-          .querySelector("input[name = 'search']")
-          .classList.add('invalid-input')
-    
+    else
+      searchForm
+        .querySelector('input[name = "search"]')
+        .classList.add('invalid-input')
   })
   searchIconMobile.addEventListener('click', () => {
     if (searchFormMobile.checkValidity()) searchFormMobile.submit()
     else
       searchFormMobile
-        .querySelector("input[name = 'search']")
+        .querySelector('input[name = "search"]')
         .classList.add('invalid-input')
   })
 })

@@ -28,8 +28,8 @@ footer {
       display: block; /* Ensures that the image doesn't create extra space */
     }
 
-    &:hover{
-        transform: translateY(-5px);
+    &:hover {
+      transform: translateY(-5px);
     }
   }
 }
@@ -42,93 +42,92 @@ footer {
   background-image: url('../assets/bg-image-1.svg');
 }
 
+.product {
+  background-color: #343659;
 
-.product{
-    background-color: #343659;
-
-    .product-image-container{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        height: 300px; 
-        @extend .shadow-lg;
-        @extend .rounded;
-        overflow: hidden;
-        .product-image{
-            position: absolute;
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            z-index: 0;
-        }
-        .product-date{
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            @extend .p-2;
-
-            .value{
-                @extend .rounded;
-                @extend .p-2;
-                border: solid 1px $light;
-                backdrop-filter: blur(4px);
-            }
-
-            .date-sep img{
-                width: 20px;
-                height: 20px;
-                @extend .mt-2;
-            }
-        }
-    }
-}
-
-.onboarding{ 
-    backdrop-filter: blur(4px);
-
-    .onboarding-image{
-        width: 64px;
-        height: 64px;
-        top: -24px;
-        right: -10px;
-        z-index: 2;
-    }
-}
-
-.mobile-menu{
-    top: 0;
-    position: fixed;
-    backdrop-filter: blur(20px);
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    z-index: 1000;
-}
-
-.loader{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 99999999999;
+  .product-image-container {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;  
-    background-color: #343659;
-    transition: all ease-in-out 250ms;
-    img{
-        width: 50px;
-        height: 50px;
+    flex-direction: column;
+    justify-content: end;
+    height: 300px;
+    @extend .shadow-lg;
+    @extend .rounded;
+    overflow: hidden;
+    .product-image {
+      position: absolute;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      z-index: 0;
     }
+    .product-date {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      @extend .p-2;
+
+      .value {
+        @extend .rounded;
+        @extend .p-2;
+        border: solid 1px $light;
+        backdrop-filter: blur(4px);
+      }
+
+      .date-sep img {
+        width: 20px;
+        height: 20px;
+        @extend .mt-2;
+      }
+    }
+  }
+}
+
+.onboarding {
+  backdrop-filter: blur(4px);
+
+  .onboarding-image {
+    width: 64px;
+    height: 64px;
+    top: -24px;
+    right: -10px;
+    z-index: 2;
+  }
+}
+
+.mobile-menu {
+  top: 0;
+  position: fixed;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 99999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343659;
+  transition: all ease-in-out 250ms;
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .invalid-input {
-  border: 1px solid red;  
+  border: 1px solid red;
 }
-.invalid-text{
-    color: red;
+.invalid-text {
+  color: red;
 }
 
-.content{
-    flex-grow: 1;
+.content {
+  flex-grow: 1;
 }
