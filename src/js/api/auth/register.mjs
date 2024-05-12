@@ -10,7 +10,9 @@ export async function register(name, email, password, avatar) {
 
   if (response.ok) {
     return await response.json()
-  }
-
-  throw new Error(response.statusText)
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
+  } 
 }

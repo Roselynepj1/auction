@@ -15,7 +15,9 @@ export async function login(email, password) {
     delete profile.accessToken
     save('profile', profile)
     return profile
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()    
+    throw new Error(errorResponse.errors[0].message || response.statusText)  
   }
-
-  throw new Error(response.statusText)
 }

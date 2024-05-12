@@ -1,4 +1,4 @@
-import { remove } from "../../storage/remove.mjs"
+import { remove } from '../../storage/remove.mjs'
 
 export function logout() {
   remove('token')
