@@ -78,96 +78,34 @@ export function validateLength(value, length = 3) {
 export function equal(value1, value2) {
   return value1 === value2
 }
- 
 
 /**
- * Validates user signup form and returns an object containing functions and data if successful,
- * or `false` if validation fails.
- *
- * @returns {object|boolean} An object containing functions and data if validation succeeds,
- *                          or `false` if validation fails.
- *
+ * Validates a URL.
+ * @param {string} url - The URL to validate.
+ * @returns {boolean} True if the URL is valid, false otherwise.
  */
-export function signupValidation() {
-  const signupForm = document.getElementById('signup-form')
-  const successMsg = document.getElementById('success-msg')
-  const errorMsg = document.getElementById('error-msg')
-  const error = document.getElementById('error')
-  //get the helpers
-  const emailHelper = document.getElementById('email-helper')
-  const passwordHelper = document.getElementById('password-helper')
-  const cpasswordHelper = document.getElementById('cpassword-helper')
-  const loader = document.getElementById('loader')
-  //create a form data object to capture user input
-  const formData = new FormData(signupForm)
-  const email = formData.get('email')
-  const password = formData.get('password')
-  const cpassword = formData.get('cpassword')
-  let errors = {
-    email: false,
-    password: false,
-    cpassword: false,
-  }
-  const showErrorMsg = (message) => {
-    hideSuccessMsg()
-    loader.classList.add('d-none')
-    errorMsg.innerHTML = message
-    error.classList.remove('d-none')
-  }
+export function isValidUrl(url) {
+  // Regular expression for URL validation
+  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
 
-  const hideErrorMsg = () => {
-    error.classList.add('d-none')
-  }
-  //Success form submission
-  const success = () => {
-    hideErrorMsg()
-    loader.classList.add('d-none')
-    signupForm.reset()
-    successMsg.classList.remove('d-none')
-  }
-  const hideSuccessMsg = () => {
-    successMsg.classList.add('d-none')
-  }
+  // Test the URL against the regular expression
+  return urlRegex.test(url)
+}
 
-  if (!validateLength(email)) {
-    emailHelper.textContent = 'Email is required'
-    errors['email'] = true
-  } else if (!validateEmail(email)) {
-    errors['email'] = true
-    emailHelper.textContent = 'Please provide a valid email address'
-  } else {
-    errors['email'] = false
-    emailHelper.textContent = null
-  }
+/**
+ * Get the value of a parameter from the URL.
+ * @param {string} paramName - The name of the parameter to retrieve.
+ * @returns {string|null} The value of the parameter, or null if the parameter is not found.
+ */
+export function getUrlParam(paramName) {
+  // Get the current URL
+  const url = window.location.href
 
-  if (!validateLength(password, 8)) {
-    errors['password'] = true
-    passwordHelper.textContent = 'Password length must be 8 or more characters'
-  } else {
-    errors['password'] = false
-    passwordHelper.textContent = null
-  }
+  // Create a URLSearchParams object with the URL query parameters
+  const params = new URLSearchParams(new URL(url).search)
 
-  if (!equal(cpassword, password)) {
-    errors['cpassword'] = true
-    cpasswordHelper.textContent = 'Password should match'
-  } else {
-    errors['cpassword'] = false
-    cpasswordHelper.textContent = null
-  }
+  // Get the value of the specified parameter
+  const paramValue = params.get(paramName)
 
-  //check if no errors have been raised
-  if (!errors['email'] && !errors['password'] && !errors['cpassword']) {
-    //return the data from the form
-    //return a function to clear the form when submission is done
-    return {
-      loader,
-      success,
-      user: { email, password },
-      showErrorMsg,
-      hideErrorMsg,
-    }
-  } else {
-    return false
-  }
+  return paramValue
 }

@@ -14,5 +14,5 @@ export async function register(name, email, password, avatar) {
     // Handle error response
     const errorResponse = await response.json()
     throw new Error(errorResponse.errors[0].message || response.statusText)
-  } 
+  }
 }

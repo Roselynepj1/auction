@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       password: false,
     }
 
-    const showErrorMsg = (message) => { 
+    const showErrorMsg = (message) => {
       error.innerHTML = message
       loader.classList.add('d-none')
       error.classList.remove('d-none')
@@ -82,24 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  document.getElementById('login-form').addEventListener('submit', async (event) => {
-    event.preventDefault()
-    const formData = loginValidation()
+  document
+    .getElementById('login-form')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const formData = loginValidation()
 
-    if (formData) {
-      //log user in
-      const { user, loader, success, showErrorMsg, hideErrorMsg } = formData
-      showElement(loader)
-      try{ 
-        const res = await login(user.email,user.password) 
-        hideElement(loader)
-        // redirect user 
-        const {name} = res
-        window.location.href ="/src/pages/profile.html?name="+name
-      }catch(error){ 
-        showErrorMsg(error)
-        hideElement(loader)
+      if (formData) {
+        //log user in
+        const { user, loader, success, showErrorMsg, hideErrorMsg } = formData
+        showElement(loader)
+        try {
+          const res = await login(user.email, user.password)
+          hideElement(loader)
+          // redirect user
+          const { name } = res
+          window.location.href = '/pages/profile.html?name=' + name
+        } catch (error) {
+          showErrorMsg(error)
+          hideElement(loader)
+        }
       }
-    }
-  })
+    })
 })

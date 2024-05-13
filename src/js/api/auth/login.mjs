@@ -17,7 +17,7 @@ export async function login(email, password) {
     return profile
   } else {
     // Handle error response
-    const errorResponse = await response.json()    
-    throw new Error(errorResponse.errors[0].message || response.statusText)  
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
   }
 }
