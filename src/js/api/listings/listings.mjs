@@ -17,8 +17,8 @@ export async function getListings({
   )
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const listing = await response.json()
+    return listing
   } else {
     // Handle error response
     const errorResponse = await response.json()
@@ -36,8 +36,57 @@ export async function getListing(id, { _bids = true, _seller = true } = {}) {
   )
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const listing = await response.json()
+    return listing
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
+  }
+}
+
+export async function addListing(listing) {
+  const response = await fetch(`${LISTINGS_URL}`, {
+    method: 'post',
+    headers: headers('application/json'),
+    body: JSON.stringify(listing),
+  })
+
+  if (response.ok) {
+    const listing = await response.json()
+    return listing
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
+  }
+}
+
+export async function updateListing(id, listing) {
+  const response = await fetch(`${LISTINGS_URL}/${id}`, {
+    method: 'put',
+    headers: headers('application/json'),
+    body: JSON.stringify(listing),
+  })
+
+  if (response.ok) {
+    const listing = await response.json()
+    return listing
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
+  }
+}
+
+export async function deleteListing(id) {
+  const response = await fetch(`${LISTINGS_URL}/${id}`, {
+    method: 'delete',
+    headers: headers('application/json'),
+  })
+
+  if (response.ok) {
+    return await response.json() 
   } else {
     // Handle error response
     const errorResponse = await response.json()

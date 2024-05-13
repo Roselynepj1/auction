@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/css/style.css" />
-    <title>Create - Click & Claim</title>
+    <title>My Listings - Click & Claim</title>
     <meta name="description" content="" />
   </head>
   <body>
@@ -141,7 +141,6 @@
                 >My listings</a
               >
             </li>
-
             <li><hr class="dropdown-divider" /></li>
             <li>
               <a class="dropdown-item" href="javascript:void(0)" id="logout"
@@ -214,7 +213,7 @@
     <!-- Bread crumbs -->
     <nav class="breadcrumbs py-3 blur">
       <div class="container hstack">
-        <h4>Create Listing</h4>
+        <h4>My Listings</h4>
         <div class="links hstack align-items-center ms-auto gap-2">
           <a href="/" class="text-decoration-none">
             <span>Home</span>
@@ -223,121 +222,86 @@
             src="/src/assets/Arrow-Greater.svg"
             alt="Greater han arrow icon"
           />
-          <a href="/pages/listings.html" class="text-decoration-none">
-            <span>My Listings</span>
-          </a>
-          <img
-            src="/src/assets/Arrow-Greater.svg"
-            alt="Greater han arrow icon"
-          />
-          <span>Create Listing</span>
+          <span>My Listings</span>
         </div>
       </div>
     </nav>
     <main class="content">
-      <div class="container py-5">
-        <h2 class="mb-3">Create a new listing item</h2>
-        <form
-          id="listings-form"
-          method="post"
-          class="border border-1 border-light-subtle blur rounded p-4"
-        >
-          <div class="mb-3">
-            <label for="title" class="form-label"
-              >Title
-              <span class="text-danger" title="Required field">*</span></label
-            >
-            <input
-              type="text"
-              class="form-control form-control-lg"
-              id="title"
-              name="title"
-              aria-describedby="title-helper"
-            />
-            <div id="title-helper" class="form-text invalid-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label"
-              >Description
-              <span class="text-danger" title="Required field">*</span></label
-            >
-            <textarea
-              class="form-control form-control-lg"
-              id="description"
-              rows="5"
-              name="description"
-              aria-describedby="description-helper"
-              maxlength="200"
-            ></textarea>
-            <div id="description-helper" class="form-text invalid-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="media" class="form-label"
-              >Listing Featured Image (URL)
-              <span class="text-danger" title="Required field">*</span></label
-            >
-            <input
-              type="url"
-              class="form-control form-control-lg"
-              id="media"
-              name="media"
-              aria-describedby="media-helper"
-              placeholder="Enter multiple urls by separating with commas i.e., url1, url2 ... "
-            />
-            <div id="media-helper" class="form-text invalid-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="tags" class="form-label"
-              >Tags
-              <span class="text-danger" title="Required field">*</span></label
-            >
-            <input
-              type="text"
-              class="form-control form-control-lg"
-              id="tags"
-              name="tags"
-              placeholder="Enter values separated by commas i.e., tag1, tag2, tag3"
-              aria-describedby="tags-helper"
-            />
-            <div id="tags-helper" class="form-text invalid-text"></div>
-          </div>
-          <div class="mb-3">
-            <label for="endsAt" class="form-label"
-              >End Date
-              <span class="text-danger" title="Required field">*</span></label
-            >
-            <input
-              type="datetime-local"
-              class="form-control form-control-lg"
-              id="endsAt"
-              name="endsAt"
-              aria-describedby="endsAt-helper"
-            />
-            <div id="endsAt-helper" class="form-text invalid-text"></div>
-          </div>
+      <div class="container my-5">
+        <h4 class="mb-3 hstack gap-2 align-items-center">
+          <a href="/pages/create-listing.html" class="btn btn-primary"
+            >Add new</a
+          >
+          <span>My Listings</span>
+        </h4>
 
-          <div class="hstack mb-3">
-            <a
-              type="submit"
-              class="btn btn-primary goto-login"
-              href="/pages/login.html"
-            >
-              <span>Login to create a listing</span>
-            </a>
-            <button type="submit" class="d-none btn btn-primary submit-btn">
-              <div
-                class="spinner-border spinner-border-sm d-none"
-                role="status"
-                id="status-loader"
-              >
-                <span class="visually-hidden">Loading...</span>
-              </div>
-              <span>Save</span>
-            </button>
-          </div>
-          <div class="alert alert-danger mb-3 d-none" id="error"></div>
-          <div class="alert alert-success mb-3 d-none" id="success"></div>
-        </form>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped border-primary">
+            <thead>
+              <tr>
+                <th>Media</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Tags</th>
+                <th>Ends At</th>
+                <th>Created At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="listings-placeholders">
+              <tr class="placeholder-wave">
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+              </tr>
+              <tr class="placeholder-wave">
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+              </tr>
+              <tr class="placeholder-wave">
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+              </tr>
+              <tr class="placeholder-wave">
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+              </tr>
+              <tr class="placeholder-wave">
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+                <td><span class="w-100 placeholder"></span></td>
+              </tr>
+            </tbody>
+            <tbody id="listings-display-area" class="d-none">
+                <tr class="d-none">
+                    <td colspan="7" class="text-center py-4" id="no-listings">No Listings found</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
 
@@ -372,6 +336,6 @@
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/main.js"></script>
-    <script type="module" src="/src/js/pages/create-listings.mjs"></script>
+    <script type="module" src="/src/js/pages/listings.mjs"></script>
   </body>
 </html>

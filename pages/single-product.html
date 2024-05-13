@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/assets/logo.svg"
+      sizes="90x90"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <title>Click & Claim</title>
+    <meta name="description" content="" />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader">
+      <img src="/src/assets/puff.svg" alt="Loader" />
+    </div>
+
+    <!-- Loader -->
+    <nav class="navbar sticky-top">
+      <div class="container py-2">
+        <a href="./index.html">
+          <img src="/src/assets/logo.svg" alt="Site Logo" />
+          <img src="/src/assets/logo-text.svg" alt="Site Name" />
+        </a>
+        <div class="vr d-none d-sm-none d-md-none d-lg-flex"></div>
+        <div class="hstack gap-4 d-none d-sm-none d-md-none d-lg-flex">
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Home-Icon.svg" alt="Home Icon" />
+            <span>Home</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Online-Icon.svg" alt="Online Icon" />
+            <span>Auctions</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/About-Icon.svg" alt="About Icon" />
+            <span>About</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="./index.html"
+          >
+            <img src="/src/assets/Contact-Icon.svg" alt="Contact Icon" />
+            <span>Contact</span>
+          </a>
+        </div>
+        <div
+          class="hstack align-items-center gap-4 d-none d-sm-none d-md-none d-lg-flex"
+        >
+          <form id="search-form">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="search"
+                placeholder="Search anything..."
+                aria-label="Search anything..."
+                aria-describedby="search-icon"
+                required
+              />
+              <span
+                class="input-group-text"
+                id="search-icon"
+                data-form="search-form"
+                ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+              /></span>
+            </div>
+          </form>
+          <a href="/src/pages/login.html" class="btn btn-dark login-link"
+            >Login</a
+          >
+        </div>
+        <div class="d-lg-none d-xl-none ms-auto me-2" id="show-menu">
+          <img src="/src/assets/Bars.svg" alt="Mobile menu toggler Icon" />
+        </div>
+        <div id="hide-menu" class="d-none d-lg-none d-xl-none ms-auto me-2">
+          <img src="/src/assets/Close.svg" alt="Close menu icon" />
+        </div>
+        <div class="dropstart d-none" id="user">
+          <span
+            class="p-0 bg-dark border-1 border-light dropdown-toggle rounded-circle"
+            data-bs-toggle="dropdown"
+            type="button"
+            aria-expanded="false"
+          >
+            <img
+              src="/src/assets/roselyne.png"
+              id="user-avatar"
+              class="rounded-circle"
+              width="36"
+              height="36"
+              alt=""
+            />
+          </span>
+          <ul class="dropdown-menu">
+            <li><h6 class="dropdown-header" id="username"></h6></li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                href="javascript:void(0)"
+                id="user-credits"
+                >0 Credits</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-profile"
+                >View Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-avatar-link"
+                >Change avatar</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/pages/listings.html"
+                id="user-avatar-link"
+                >My listings</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0)" id="logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav
+      class="mobile-menu vstack justify-content-center align-items-center p-5 d-none d-lg-none d-xl-none"
+    >
+      <div class="vstack gap-4 justify-content-end align-items-center">
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        >
+          <span>Home</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        >
+          <span>Auctions</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        >
+          <span>About</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="./index.html"
+        >
+          <span>Contact</span>
+        </a>
+      </div>
+      <div
+        class="hstack align-items-center justify-content-center gap-4 flex-fill"
+      >
+        <form id="search-form-mobile">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              name="search"
+              placeholder="Search anything..."
+              aria-label="Search anything..."
+              aria-describedby="search-icon-mobile"
+              required
+            />
+            <span
+              class="input-group-text"
+              id="search-icon-mobile"
+              data-form="search-form-mobile"
+              ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+            /></span>
+          </div>
+        </form>
+        <a href="/src/pages/login.html" class="btn btn-dark login-link"
+          >Login</a
+        >
+      </div>
+    </nav>
+    <!-- Mobile menu end -->
+
+    <!-- Bread crumbs -->
+    <nav class="breadcrumbs py-3 blur">
+      <div class="container hstack">
+        <h4>Shop</h4>
+        <div class="links hstack align-items-center ms-auto gap-2">
+          <a href="/" class="text-decoration-none">
+            <span>Home</span>
+          </a>
+          <img
+            src="/src/assets/Arrow-Greater.svg"
+            alt="Greater han arrow icon"
+          />
+          <a href="/pages/shop.html" class="text-decoration-none">
+            <span>Shop</span>
+          </a>
+          <img
+            src="/src/assets/Arrow-Greater.svg"
+            alt="Greater han arrow icon"
+          />
+          <span id="single-product-breadcrumb"></span>
+        </div>
+      </div>
+    </nav>
+    <main class="content">
+      <div class="container my-5">
+        <div class="row mb-5">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="featured-image mb-3">
+              <img
+                src="/src/assets/electronics-product-06-600x600.jpg"
+                class="object-fit-cover p-4 border border-1 border-primary-subtle rounded bg-primary-subtle"
+                alt=""
+                height="500"
+                id="listing-featured-img"
+              />
+            </div>
+            <div class="other-images hstack flex-wrap gap-3" id="listing-other-images">
+              <img
+                src="/src/assets/electronics-product-10-600x600.jpg"
+                class="rounded"
+                width="100"
+                height="100"
+                alt=""
+              />
+              <img
+                src="/src/assets/electronics-product-10-600x600.jpg"
+                class="rounded"
+                width="100"
+                height="100"
+                alt=""
+              />
+              <img
+                src="/src/assets/electronics-product-10-600x600.jpg"
+                class="rounded"
+                width="100"
+                height="100"
+                alt=""
+              />
+              <img
+                src="/src/assets/electronics-product-10-600x600.jpg"
+                class="rounded"
+                width="100"
+                height="100"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <h4 id="listing-title">4K TV and Audio Equipment</h4>
+            <p id="listing-total-bids">20 Total bids</p>
+            <hr />
+            <p id="listing-description">
+              Dive into the world of cutting-edge gaming hardware with our
+              “Gaming Paradise” auction. From powerful graphics cards to
+              lightning-fast SSDs and high-refresh-rate monitors, this event is
+              a haven for gamers seeking to level up their setups. Whether
+              you're a competitive esports player.
+            </p>
+            <hr>
+            <h4>Time Left</h4>
+            <div
+              class="mb-3 blur p-2 border border-1 rounded border-primary-subtle bg-primary col-sm-12 col-md-12 col-lg-8"
+            >
+              <div class="product-date hstack">
+                <div class="vstack justify-content-center align-items-center" id="listing-date-day">
+                  <h6 class="value">04</h6>
+                  <h6 class="type mb-0">DAY</h6>
+                </div>
+                <div class="vstack date-sep">
+                  <img
+                    src="/src/assets/More-Vert.svg"
+                    alt="More Verticle Icon"
+                  />
+                </div>
+                <div class="vstack justify-content-center align-items-center" id="listing-date-hour">
+                  <h6 class="value">04</h6>
+                  <h6 class="type mb-0">HRS</h6>
+                </div>
+                <div class="vstack date-sep">
+                  <img
+                    src="/src/assets/More-Vert.svg"
+                    alt="More Verticle Icon"
+                  />
+                </div>
+                <div class="vstack justify-content-center align-items-center"  id="listing-date-min">
+                  <h6 class="value">04</h6>
+                  <h6 class="type mb-0">MIN</h6>
+                </div>
+                <div class="vstack date-sep">
+                  <img
+                    src="/src/assets/More-Vert.svg"
+                    alt="More Verticle Icon"
+                  />
+                </div>
+                <div class="vstack justify-content-center align-items-center" id="listing-date-sec">
+                  <h6 class="value">04</h6>
+                  <h6 class="type mb-0">SEC</h6>
+                </div>
+              </div>
+            </div>
+            <h4 class="hstack gap-3">
+              <span>Ends At: </span>
+              <span id="listing-end-date">2023 Jan 06</span>
+            </h4>
+
+            <form id="place-bid">
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="number"
+                    name="bid"
+                    id="bid"
+                    class="form-control"
+                    min="0"
+                  />
+                </div>
+                <div class="col-10">
+                  <button class="btn btn-primary w-100 d-none" id="place-bid-btn">Place bid now</button>
+                  <a href="/pages/login.html" class="btn btn-primary w-100" id="login-to-bid-btn">Login to place bid</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered border-primary">
+                    <tbody id="all-bidders"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Auction Started</td>
+                            <td colspan="2" id="listing-date-created"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="hstack">
+      <div class="container hstack">
+        <p class="mb-0">&copy; 2024 • All rights reserved by Click & Claim</p>
+        <div class="hstack ms-auto gap-4">
+          <a
+            href="https://facebook.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Facebook.svg" alt="Facebook Icon"
+          /></a>
+          <a
+            href="https://linkedin.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Linkedin.svg" alt="Linkedin Icon"
+          /></a>
+          <a
+            href="https://instagram.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Instagram.svg" alt="Instagram Icon"
+          /></a>
+          <a href="https://x.com" class="footer-social-icons" target="_blank"
+            ><img src="/src/assets/X.svg" alt="X Icon"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/js/pages/single-product.mjs"></script>
+  </body>
+</html>

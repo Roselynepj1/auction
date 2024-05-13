@@ -172,3 +172,23 @@ footer {
   top: -50%;
   transition: top 0.75s ease-in-out;
 }
+
+.product-date {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  @extend .p-2;
+
+  .value {
+    @extend .rounded;
+    @extend .p-2;
+    border: solid 1px $light;
+    backdrop-filter: blur(4px);
+  }
+
+  .date-sep img {
+    width: 20px;
+    height: 20px;
+    @extend .mt-2;
+  }
+}

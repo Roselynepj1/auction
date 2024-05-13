@@ -7877,7 +7877,7 @@ textarea.form-control-lg {
   margin-top: 0.25rem !important;
 }
 
-.mt-2, .product .product-image-container .product-date .date-sep img {
+.mt-2, .product .product-image-container .product-date .date-sep img, .product-date .date-sep img {
   margin-top: 0.5rem !important;
 }
 
@@ -7989,7 +7989,7 @@ textarea.form-control-lg {
   padding: 0.25rem !important;
 }
 
-.p-2, .product .product-image-container .product-date, .product .product-image-container .product-date .value {
+.p-2, .product .product-image-container .product-date, .product .product-image-container .product-date .value, .product-date, .product-date .value {
   padding: 0.5rem !important;
 }
 
@@ -8805,7 +8805,7 @@ textarea.form-control-lg {
   pointer-events: auto !important;
 }
 
-.rounded, .product .product-image-container, .product .product-image-container .product-date .value {
+.rounded, .product .product-image-container, .product .product-image-container .product-date .value, .product-date .value {
   border-radius: var(--bs-border-radius) !important;
 }
 
@@ -12012,6 +12012,20 @@ footer .footer-social-icons:hover {
   z-index: 10;
   top: -50%;
   transition: top 0.75s ease-in-out;
+}
+
+.product-date {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.product-date .value {
+  border: solid 1px #f8f9fa;
+  backdrop-filter: blur(4px);
+}
+.product-date .date-sep img {
+  width: 20px;
+  height: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
