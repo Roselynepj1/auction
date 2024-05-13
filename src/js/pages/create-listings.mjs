@@ -1,5 +1,9 @@
 import { isLoggedIn } from '../api/auth/state.mjs'
-import { addListing, getListing, updateListing } from '../api/listings/listings.mjs'
+import {
+  addListing,
+  getListing,
+  updateListing,
+} from '../api/listings/listings.mjs'
 import {
   getSearchParams,
   hideElement,
@@ -96,7 +100,7 @@ export function createListingValidation() {
     descriptionHelper.textContent = null
   }
 
-  media.split(',').forEach((item)=>{ 
+  media.split(',').forEach((item) => {
     if (!isValidUrl(item)) {
       errors['media'] = true
       mediaHelper.textContent = 'Please provide valid urls'
@@ -119,7 +123,13 @@ export function createListingValidation() {
     return {
       loader,
       showSuccessMsg,
-      listing: { title, description, media: media.split(','), tags: tags.split(','), endsAt },
+      listing: {
+        title,
+        description,
+        media: media.split(','),
+        tags: tags.split(','),
+        endsAt,
+      },
       showErrorMsg,
       hideErrorMsg,
     }
@@ -140,27 +150,31 @@ document.addEventListener('DOMContentLoaded', () => {
     showElement(listingSaveBtn)
   }
 
-  if(listingId){
+  if (listingId) {
     //fetch the listing content
-    getListing(listingId).then((res)=>{
-      const { title, description, media, tags, endsAt } = res
-      document.getElementById('title').setAttribute('value', title)
-      document.getElementById('description').textContent = description
-      document.getElementById('media').setAttribute('value', media.join(','))
-      document.getElementById('tags').setAttribute('value', tags.join(','))
-      // Assuming you have a datetime string from the API
-      const apiDateTimeString = endsAt
+    getListing(listingId)
+      .then((res) => {
+        const { title, description, media, tags, endsAt } = res
+        document.getElementById('title').setAttribute('value', title)
+        document.getElementById('description').textContent = description
+        document.getElementById('media').setAttribute('value', media.join(','))
+        document.getElementById('tags').setAttribute('value', tags.join(','))
+        // Assuming you have a datetime string from the API
+        const apiDateTimeString = endsAt
 
-      // Convert the datetime string to a JavaScript Date object
-      const dateTime = new Date(apiDateTimeString)
+        // Convert the datetime string to a JavaScript Date object
+        const dateTime = new Date(apiDateTimeString)
 
-      // Format the date and time to match the expected format of datetime-local input
-      const formattedDateTime = dateTime.toISOString().slice(0, 16)
+        // Format the date and time to match the expected format of datetime-local input
+        const formattedDateTime = dateTime.toISOString().slice(0, 16)
 
-      document.getElementById('endsAt').setAttribute('value', formattedDateTime)
-    }).catch((error)=>{
-        alert("Could not find listing details")
-    })
+        document
+          .getElementById('endsAt')
+          .setAttribute('value', formattedDateTime)
+      })
+      .catch((error) => {
+        alert('Could not find listing details')
+      })
   }
 
   listingsForm.addEventListener('submit', (event) => {
@@ -174,11 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
         addListing(listing)
           .then((res) => {
             showSuccessMsg('Listing has been created successfully')
-            const {id} = res
+            const { id } = res
             //redirect to edit page
-            setTimeout(()=>{
-                window.location.href = "/pages/create-listing.html?id="+id
-            },3000)
+            setTimeout(() => {
+              window.location.href = '/pages/create-listing.html?id=' + id
+            }, 3000)
           })
           .catch((error) => {
             showErrorMsg(error)

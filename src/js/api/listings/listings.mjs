@@ -86,7 +86,7 @@ export async function deleteListing(id) {
   })
 
   if (response.ok) {
-    return await response.json() 
+    return await response.json()
   } else {
     // Handle error response
     const errorResponse = await response.json()

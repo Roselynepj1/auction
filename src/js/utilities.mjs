@@ -110,7 +110,6 @@ export function getUrlParam(paramName) {
   return paramValue
 }
 
-
 /**
  * Validates whether a value in an HTML datetime-local input field represents a valid date and time.
  * @param {string} datetimeValue - The value of the datetime-local input field.
@@ -118,8 +117,8 @@ export function getUrlParam(paramName) {
  */
 export function isValidDateTime(datetimeValue) {
   // Check if the input value matches the format of datetime-local input type
-  const dateTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
-  return dateTimeRegex.test(datetimeValue);
+  const dateTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/
+  return dateTimeRegex.test(datetimeValue)
 }
 
 /**
@@ -128,15 +127,15 @@ export function isValidDateTime(datetimeValue) {
  * @returns {string} The formatted date string.
  */
 export function formatDate(dateString) {
-  const date = new Date(dateString);
-  
+  const date = new Date(dateString)
+
   // Format the date part (e.g., "25 May 2024")
-  const options = { day: '2-digit', month: 'short', year: 'numeric' };
-  const formattedDate = date.toLocaleDateString('en-US', options);
-  
+  const options = { day: '2-digit', month: 'short', year: 'numeric' }
+  const formattedDate = date.toLocaleDateString('en-US', options)
+
   // Format the time part (e.g., "11:23 PM")
-  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
-  const formattedTime = date.toLocaleTimeString('en-US', timeOptions);
-  
-  return `${formattedDate}, ${formattedTime}`;
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true }
+  const formattedTime = date.toLocaleTimeString('en-US', timeOptions)
+
+  return `${formattedDate}, ${formattedTime}`
 }
