@@ -85,13 +85,68 @@
               /></span>
             </div>
           </form>
-          <a href="/pages/login.html" class="btn btn-dark">Login</a>
+          <a href="/pages/login.html" class="btn btn-dark login-link">Login</a>
         </div>
-        <div class="d-lg-none d-xl-none" id="show-menu">
+        <div class="d-lg-none d-xl-none ms-auto me-2" id="show-menu">
           <img src="/src/assets/Bars.svg" alt="Mobile menu toggler Icon" />
         </div>
-        <div id="hide-menu" class="d-none d-lg-none d-xl-none">
+        <div id="hide-menu" class="d-none d-lg-none d-xl-none ms-auto me-2">
           <img src="/src/assets/Close.svg" alt="Close menu icon" />
+        </div>
+        <div class="dropstart d-none" id="user">
+          <span
+            class="p-0 bg-dark border-1 border-light dropdown-toggle rounded-circle"
+            data-bs-toggle="dropdown"
+            type="button"
+            aria-expanded="false"
+          >
+            <img
+              src="/src/assets/roselyne.png"
+              id="user-avatar"
+              class="rounded-circle"
+              width="36"
+              height="36"
+              alt=""
+            />
+          </span>
+          <ul class="dropdown-menu">
+            <li><h6 class="dropdown-header" id="username"></h6></li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                href="javascript:void(0)"
+                id="user-credits"
+                >0 Credits</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-profile"
+                >View Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-avatar-link"
+                >Change avatar</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/pages/create-listing.html"
+                id="user-avatar-link"
+                >Create a listing</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0)" id="logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -147,7 +202,7 @@
             /></span>
           </div>
         </form>
-        <a href="/pages/login.html" class="btn btn-dark">Login</a>
+        <a href="/pages/login.html" class="btn btn-dark login-link">Login</a>
       </div>
     </nav>
     <!-- Mobile menu end -->
@@ -172,7 +227,9 @@
                     class="btn btn-dark btn-outline-light text-decoration-none"
                     >Get Started</a
                   >
-                  <a href="/pages/create-listing.html" class="btn btn-outline-light text-decoration-none"
+                  <a
+                    href="/pages/create-listing.html"
+                    class="btn btn-outline-light text-decoration-none"
                     >Create</a
                   >
                 </div>
@@ -546,6 +603,8 @@
         </div>
       </div>
     </footer>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

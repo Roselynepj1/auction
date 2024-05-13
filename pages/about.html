@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/assets/logo.svg"
+      sizes="90x90"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <title>Click & Claim</title>
+    <meta name="description" content="" />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader">
+      <img src="/src/assets/puff.svg" alt="Loader" />
+    </div>
+
+    <!-- Loader -->
+    <nav class="navbar sticky-top">
+      <div class="container py-2">
+        <a href="./index.html">
+          <img src="/src/assets/logo.svg" alt="Site Logo" />
+          <img src="/src/assets/logo-text.svg" alt="Site Name" />
+        </a>
+        <div class="vr d-none d-sm-none d-md-none d-lg-flex"></div>
+        <div class="hstack gap-4 d-none d-sm-none d-md-none d-lg-flex">
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="/index.html"
+          >
+            <img src="/src/assets/Home-Icon.svg" alt="Home Icon" />
+            <span>Home</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="/pages/shop.html"
+          >
+            <img src="/src/assets/Online-Icon.svg" alt="Online Icon" />
+            <span>Auctions</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="/pages/about.html"
+          >
+            <img src="/src/assets/About-Icon.svg" alt="About Icon" />
+            <span>About</span>
+          </a>
+          <a
+            class="hstack text-decoration-none text-white gap-2 align-items-center"
+            href="/pages/contact.html"
+          >
+            <img src="/src/assets/Contact-Icon.svg" alt="Contact Icon" />
+            <span>Contact</span>
+          </a>
+        </div>
+        <div
+          class="hstack align-items-center gap-4 d-none d-sm-none d-md-none d-lg-flex"
+        >
+          <form id="search-form">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="search"
+                placeholder="Search anything..."
+                aria-label="Search anything..."
+                aria-describedby="search-icon"
+                required
+              />
+              <span
+                class="input-group-text"
+                id="search-icon"
+                data-form="search-form"
+                ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+              /></span>
+            </div>
+          </form>
+          <a href="/pages/login.html" class="btn btn-dark login-link">Login</a>
+        </div>
+        <div class="d-lg-none d-xl-none ms-auto me-2" id="show-menu">
+          <img src="/src/assets/Bars.svg" alt="Mobile menu toggler Icon" />
+        </div>
+        <div id="hide-menu" class="d-none d-lg-none d-xl-none ms-auto me-2">
+          <img src="/src/assets/Close.svg" alt="Close menu icon" />
+        </div>
+        <div class="dropstart d-none" id="user">
+          <span
+            class="p-0 bg-dark border-1 border-light dropdown-toggle rounded-circle"
+            data-bs-toggle="dropdown"
+            type="button"
+            aria-expanded="false"
+          >
+            <img
+              src="/src/assets/roselyne.png"
+              id="user-avatar"
+              class="rounded-circle"
+              width="36"
+              height="36"
+              alt=""
+            />
+          </span>
+          <ul class="dropdown-menu">
+            <li><h6 class="dropdown-header" id="username"></h6></li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                href="javascript:void(0)"
+                id="user-credits"
+                >0 Credits</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-profile"
+                >View Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" id="user-avatar-link"
+                >Change avatar</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/pages/create-listing.html"
+                id="user-avatar-link"
+                >Create a listing</a
+              >
+            </li>
+
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0)" id="logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav
+      class="mobile-menu vstack justify-content-center align-items-center p-5 d-none d-lg-none d-xl-none"
+    >
+      <div class="vstack gap-4 justify-content-end align-items-center">
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="/index.html"
+        >
+          <span>Home</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="/pages/shop.html"
+        >
+          <span>Auctions</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="/pages/about.html"
+        >
+          <span>About</span>
+        </a>
+        <a
+          class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
+          href="/pages/contact.html"
+        >
+          <span>Contact</span>
+        </a>
+      </div>
+      <div
+        class="hstack align-items-center justify-content-center gap-4 flex-fill"
+      >
+        <form id="search-form-mobile">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              name="search"
+              placeholder="Search anything..."
+              aria-label="Search anything..."
+              aria-describedby="search-icon-mobile"
+              required
+            />
+            <span
+              class="input-group-text"
+              id="search-icon-mobile"
+              data-form="search-form-mobile"
+              ><img src="/src/assets/Search-Icon.svg" alt="Search Icon"
+            /></span>
+          </div>
+        </form>
+        <a href="/pages/login.html" class="btn btn-dark login-link">Login</a>
+      </div>
+    </nav>
+    <!-- Mobile menu end -->
+
+    <!-- Bread crumbs -->
+    <nav class="breadcrumbs py-3 blur">
+      <div class="container hstack">
+        <h4>About</h4>
+        <div class="links hstack align-items-center ms-auto gap-2">
+          <a href="/" class="text-decoration-none">
+            <span>Home</span>
+          </a>
+          <img
+            src="/src/assets/Arrow-Greater.svg"
+            alt="Greater han arrow icon"
+          />
+          <span>About</span>
+        </div>
+      </div>
+    </nav>
+    <main class="content">
+      <div class="container py-5">
+        <h2>Click & Claim</h2>
+        <h4 class="fw-light">See it, Click it and Claim it</h4>
+      </div>
+      <div class="section-1"></div>
+      <div class="container">
+        <div class="row my-5">
+          <div class="col-sm-12 col-md-6 col-lg-6 mb-5 position-relative">
+            <div
+              class="blur p-4 rounded border border-1 border-light-subtle floating-div bg-dark-subtle"
+            >
+              <h4>Why we do this</h4>
+              <p>
+                By providing a platform where enthusiasts and collectors alike
+                can come together, we aim to foster a sense of community, ignite
+                curiosity, and inspire lifelong learning. We're committed to
+                creating opportunities for exploration, appreciation, and growth
+                because we believe that every click and claim has the power to
+                enrich lives and create lasting memories.
+              </p>
+              <a
+                class="btn btn-primary btn-outline-light"
+                href="/pages/contact.html"
+              >
+                <span>Contact Us</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 mb-5">
+            <div class="blur p-4 rounded border border-1 border-light-subtle">
+              <h4>Helping You <br />Grow In Every Stage.</h4>
+              <p>
+                Discover a platform designed to nurture your journey of growth,
+                from budding enthusiast to seasoned collector. With Click and
+                Claim, you'll find a supportive community and a wealth of
+                opportunities to expand your horizons. Whether you're exploring
+                new interests or refining your expertise, we're here to help you
+                thrive at every stage. Join us and embark on a journey of
+                discovery, learning, and endless possibilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-2">
+        <div class="container">
+          <h2 class="text-center">
+            Discover rare items and <br />collectables
+          </h2>
+          <p class="text-center">
+            Partner with one of the world’s largest retailers to showcase your
+            brand and products.
+          </p>
+          <div class="hstack justify-content-center gap-4">
+            <a
+              class="btn btn-primary btn-outline-light"
+              href="/pages/contact.html"
+            >
+              <span>Contact Us</span>
+            </a>
+            <a class="btn btn-outline-light" href="/pages/create-listing.html">
+              <span>Create Listing</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container p-5">
+        <h4 class="text-center mb-3">
+          Create, Sell well & Collect your items at Click & Claim Very Fast
+        </h4>
+        <p class="border border-1 border-light-subtle p-4">
+          Experience the thrill of rapid transactions at Click & Claim, where
+          selling and claiming happen at lightning speed. List your items with
+          ease and watch as they find eager buyers in record time. With our
+          streamlined platform and efficient processes, selling your treasures
+          has never been quicker or more convenient. And once your item is sold,
+          claim your earnings swiftly, ready to reinvest or indulge in your next
+          discovery. Join our vibrant community and discover the exhilaration of
+          fast-paced selling and claiming, only at Click & Claim.
+        </p>
+      </div>
+    </main>
+
+    <footer class="hstack">
+      <div class="container hstack">
+        <p class="mb-0">&copy; 2024 • All rights reserved by Click & Claim</p>
+        <div class="hstack ms-auto gap-4">
+          <a
+            href="https://facebook.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Facebook.svg" alt="Facebook Icon"
+          /></a>
+          <a
+            href="https://linkedin.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Linkedin.svg" alt="Linkedin Icon"
+          /></a>
+          <a
+            href="https://instagram.com"
+            class="footer-social-icons"
+            target="_blank"
+            ><img src="/src/assets/Instagram.svg" alt="Instagram Icon"
+          /></a>
+          <a href="https://x.com" class="footer-social-icons" target="_blank"
+            ><img src="/src/assets/X.svg" alt="X Icon"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/js/pages/about.mjs"></script>
+  </body>
+</html>
