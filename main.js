@@ -1,3 +1,5 @@
+import { isLoggedIn, profile } from './src/js/api/auth/state.mjs'
+import { remove } from './src/js/storage/remove.mjs'
 import { showElement, hideElement } from './src/js/utilities.mjs'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,4 +42,43 @@ document.addEventListener('DOMContentLoaded', () => {
         .querySelector('input[name = "search"]')
         .classList.add('invalid-input')
   })
+
+  //check if user is logged in
+
+  if (isLoggedIn()) {
+    const user = document.getElementById('user')
+    const { name, avatar, credits } = profile()
+    document
+      .getElementById('user-avatar')
+      .setAttribute('src', avatar || 'https://picsum.photos/300')
+    document.getElementById('username').textContent = name
+
+    document
+      .getElementById('user-profile')
+      .setAttribute('href', `/pages/profile.html?name=${name}`)
+    document
+      .getElementById('user-avatar-link')
+      .setAttribute('href', `/pages/change-avatar.html?name=${name}`)
+    const loginButtons = document.querySelectorAll('.login-link')
+
+    loginButtons.forEach((element) => {
+      hideElement(element)
+    })
+    document.getElementById('user-credits').textContent = `${credits} credits`
+
+    //show user
+    showElement(user)
+
+    //Add logout unction
+    document.getElementById('logout').addEventListener('click', (event) => {
+      event.preventDefault()
+      const res = confirm('Are you sure you want to logout')
+
+      if (res) {
+        remove('token')
+        remove('profile')
+        window.location.href = '/pages/login.html'
+      }
+    })
+  }
 })

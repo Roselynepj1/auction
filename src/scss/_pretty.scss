@@ -131,3 +131,44 @@ footer {
 .content {
   flex-grow: 1;
 }
+
+.section-1 {
+  min-height: 65dvh;
+  background-image: url('../assets/bg-image-22.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.floating-div {
+  position: relative;
+  z-index: 10;
+  top: -70%;
+  transition: top 0.75s ease-in-out;
+}
+
+.section-2 {
+  background-image: linear-gradient(
+      0deg,
+      rgba(8, 8, 8, 0.822),
+      rgba(20, 16, 16, 0.788)
+    ),
+    url('../assets/bg-image-6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 2rem auto;
+  padding: 5rem;
+}
+
+.banner {
+  min-height: 65dvh;
+  background-image: url('../assets/auct.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-user-image {
+  position: relative;
+  z-index: 10;
+  top: -50%;
+  transition: top 0.75s ease-in-out;
+}
