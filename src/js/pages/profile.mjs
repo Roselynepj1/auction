@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //target tab pane
         const tabPane = document.querySelector(
           target.getAttribute('data-bs-target'),
-        ) 
+        )
       })
     } //if its logged user visting this page
   }

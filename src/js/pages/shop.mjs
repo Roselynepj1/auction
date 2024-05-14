@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
             //filter out listings that dont match the bids
             const { _count } = listing
 
-            
             if (_count.bids >= data.bidFrom && _count.bids <= data.bidTo) {
               const listingElement = createProductElement(listing)
               listingsDisplayArea.append(listingElement)
