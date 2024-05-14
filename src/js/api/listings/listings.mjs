@@ -63,12 +63,19 @@ export async function addListing(listing) {
   }
 }
 
-export async function placeBid(id, amount,{_seller=true,_bids=true}={}) {
-  const response = await fetch(`${LISTINGS_URL}/${id}/bids?_seller=${_seller}&_bids=${_bids}`, {
-    method: 'post',
-    headers: headers('application/json'),
-    body: JSON.stringify({ amount }),
-  })
+export async function placeBid(
+  id,
+  amount,
+  { _seller = true, _bids = true } = {},
+) {
+  const response = await fetch(
+    `${LISTINGS_URL}/${id}/bids?_seller=${_seller}&_bids=${_bids}`,
+    {
+      method: 'post',
+      headers: headers('application/json'),
+      body: JSON.stringify({ amount }),
+    },
+  )
 
   if (response.ok) {
     const bid = await response.json()

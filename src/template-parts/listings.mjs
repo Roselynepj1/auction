@@ -121,7 +121,7 @@ export const createListingTableRow = (listing) => {
  * @param {string} listing - The object.
  * @returns {HTMLElement} The product element.
  */
-export function createProductElement(listing,width='col-lg-4') {
+export function createProductElement(listing, width = 'col-lg-4') {
   const { media, endsAt, title: productName, id: productId } = listing
   const imageUrl = media[0] || '/src/assets/Image.svg'
   const remainingTime = calculateTimeRemaining(endsAt)
@@ -258,7 +258,7 @@ export function createProductCard(listing) {
     'p-2',
     'bg-primary',
     'rounded',
-    'mb-3'
+    'mb-3',
   ])
 
   // Create image element

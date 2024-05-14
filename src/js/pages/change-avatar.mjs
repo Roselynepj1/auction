@@ -98,7 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault()
       const formData = updateAvatarFormValidation()
       if (formData) {
-        const { avatar: newAvatar, loader, showErrorMsg, showSuccessMsg } = formData
+        const {
+          avatar: newAvatar,
+          loader,
+          showErrorMsg,
+          showSuccessMsg,
+        } = formData
         showElement(loader)
         updateProfileMedia(urlName, newAvatar)
           .then((res) => {

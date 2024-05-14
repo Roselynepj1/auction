@@ -17,11 +17,14 @@ export async function getCredits(username) {
   }
 }
 
-export async function getProfile(username,_listings=true) {
-  const response = await fetch(`${PROFILE_URL}/${username}?_listings=${_listings}`, {
-    method: 'get',
-    headers: headers('application/json'),
-  })
+export async function getProfile(username, _listings = true) {
+  const response = await fetch(
+    `${PROFILE_URL}/${username}?_listings=${_listings}`,
+    {
+      method: 'get',
+      headers: headers('application/json'),
+    },
+  )
 
   if (response.ok) {
     const profile = await response.json()

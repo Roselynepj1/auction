@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const limit = 20
 
   getListings()
-    .then((listings) => { 
+    .then((listings) => {
       listings.forEach((listing) => {
         listingsDisplayArea.append(createProductElement(listing))
       })

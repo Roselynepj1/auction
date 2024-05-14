@@ -84,11 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //detect if user credits have been updated
   function handleProfileChange(event) {
-    document.getElementById('user-credits').textContent = `${event.detail.credits} credits` 
+    document.getElementById('user-credits').textContent =
+      `${event.detail.credits} credits`
     document
       .getElementById('user-avatar')
       .setAttribute('src', event.detail.avatar || 'https://picsum.photos/300')
-  } 
+  }
 
   // Add event listener for changes in user data
   window.addEventListener('userDataChange', handleProfileChange)

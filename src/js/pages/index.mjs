@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   getListings()
     .then((listings) => {
       listings.forEach((listing) => {
-        let elem = createProductElement(listing,'col-lg-3')
+        let elem = createProductElement(listing, 'col-lg-3')
         listingsDisplayArea.append(elem)
       })
       showElement(listingsDisplayArea)
