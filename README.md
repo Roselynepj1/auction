@@ -1,17 +1,17 @@
-<h1><img src="/src/assets/Logo.svg" alt="DevSync Logo" width="32" height="32"> Click & Claim</h1> 
+<h1><img src="/src/assets/Logo.svg" alt="DevSync Logo" width="32" height="32"> Click & Claim</h1>
 
 Experience the thrill of rapid transactions at Click & Claim, where
 selling and claiming happen at lightning speed. List your items with
 ease and watch as they find eager buyers in record time. With our
 streamlined platform and efficient processes, selling your treasures
 has never been quicker or more convenient.
-        
- 
+
 ## Overview
 
 This project is an auction website where users can add items to be bid on and bid on items other users have put up for auction. It was developed as a semester project to demonstrate skills learned over multiple semesters.
 
 ![Homepage](/public/Homepage.png)
+
 ## Table of Contents
 
 - [Features](#features)
