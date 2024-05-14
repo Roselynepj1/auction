@@ -109,7 +109,13 @@ export function signupValidation() {
   }
 
   //check if no errors have been raised
-  if (!errors['email'] && !errors['password'] && !errors['cpassword']) {
+  if (
+    !errors['email'] &&
+    !errors['password'] &&
+    !errors['avatar'] &&
+    !errors['username'] &&
+    !errors['cpassword']
+  ) {
     //return the data from the form
     //return a function to clear the form when submission is done
     return {

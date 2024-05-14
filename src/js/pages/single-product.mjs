@@ -6,9 +6,11 @@ import {
   updateCountdownTimer,
   calculateTimeRemaining,
   createElement,
+  createBidTableRow,
 } from '../utilities.mjs'
 import { getListing, placeBid } from '../api/listings/listings.mjs'
-import { profile, isLoggedIn } from '../api/auth/state.mjs'
+import { profile, isLoggedIn, updateLoggedInUser } from '../api/auth/state.mjs'
+import { getCredits } from '../api/profile/profile.mjs'
 
 /**
  * Validates place bid form and returns an object containing functions and data if successful,
@@ -80,9 +82,6 @@ function placeBidValidation() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const id = getSearchParams('id')
-  const singleProductBreadcrumb = document.getElementById(
-    'single-product-breadcrumb',
-  )
   const listingPlaceholders = document.getElementById('listing-placeholders')
   const listingItem = document.getElementById('listing-item')
   const listingFeaturedImage = document.getElementById('listing-featured-img')
@@ -109,8 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (id) {
-    //get currently logged in user
-    const { name } = profile()
     getListing(id)
       .then((listing) => {
         const {
@@ -175,31 +172,23 @@ document.addEventListener('DOMContentLoaded', () => {
         //show all bidders
 
         bids.forEach((bid) => {
-          const tr = createElement('tr', [], {})
-          const td1 = createElement('td', ['text-center'], {
-            textContent: bid.bidderName,
-          })
-          const td2 = createElement('td', ['text-center'], {
-            textContent: formatDate(bid.created),
-          })
-          const td3 = createElement('td', ['text-center'], {
-            textContent: bid.amount,
-          })
-
-          tr.appendChild(td1)
-          tr.appendChild(td2)
-          tr.appendChild(td3)
+          const tr = createBidTableRow(bid.bidderName, bid.created, bid.amount)
           allBidders.append(tr)
         })
         //The user who created a listing can not bid on it
-        if (name === seller.name) {
-          hideElement(placeBidForm)
+        if (isLoggedIn()) {
+          //get currently logged in user
+          const { name } = profile()
+          name === seller.name && hideElement(placeBidForm)
         }
 
         //show the listing item
         showElement(listingItem)
       })
       .catch((error) => {})
+  } else {
+    alert('No product id was provided')
+    hideElement(listingPlaceholders)
   }
 
   //handle place bid
@@ -211,8 +200,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formData) {
       const { bid, success, loader, showErrorMsg } = formData
       placeBid(id, Number(bid))
-        .then((bid) => {
+        .then((listing) => {
           success('Bid has been placed successfully')
+          //update the bidders table
+          const { bids } = listing
+          //sort the bids
+          bids.sort((a, b) => b.amount - a.amount)
+          allBidders.innerHTML = ''
+          bids.forEach((bid) => {
+            const tr = createBidTableRow(
+              bid.bidderName,
+              bid.created,
+              bid.amount,
+            )
+            allBidders.append(tr)
+          })
+          //get new user remaining credits
+          const { name } = profile()
+          getCredits(name)
+            .then((res) => {
+              updateLoggedInUser(res.credits)
+            })
+            .catch((error) => console.error(error))
+          //hide successMsg after 2 seconds
+          setTimeout(() => {
+            hideElement(document.getElementById('success'))
+          }, 2000)
         })
         .catch((error) => {
           showErrorMsg(error)

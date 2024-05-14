@@ -121,18 +121,16 @@ export const createListingTableRow = (listing) => {
  * @param {string} listing - The object.
  * @returns {HTMLElement} The product element.
  */
-export function createProductElement(listing) {
+export function createProductElement(listing,width='col-lg-4') {
   const { media, endsAt, title: productName, id: productId } = listing
   const imageUrl = media[0] || '/src/assets/Image.svg'
   const remainingTime = calculateTimeRemaining(endsAt)
-  if (remainingTime) {
-    const { days, hours, minutes, seconds } = remainingTime
-  }
+
   // Create the main container div
   const productContainer = createElement('div', [
     'col-sm-12',
     'col-md-6',
-    'col-lg-4',
+    width,
     'mb-5',
   ])
 
@@ -164,6 +162,7 @@ export function createProductElement(listing) {
   // Create the product date elements (days, hours, minutes, seconds)
   const dateElements = ['DAY', 'HRS', 'MIN', 'SEC']
   if (remainingTime) {
+    const { days, hours, minutes, seconds } = remainingTime
     const timeValues = [days, hours, minutes, seconds]
     for (let i = 0; i < dateElements.length; i++) {
       // Create the date element container
@@ -243,4 +242,67 @@ export function createProductElement(listing) {
 
   // Return the product container
   return productContainer
+}
+
+/**
+ * Creates a product card element with specified content.
+ * @param {object} listing - The listing object.
+ * @returns {HTMLDivElement} The created product card element.
+ */
+export function createProductCard(listing) {
+  const { media, title, description, id } = listing
+  // Create container div with specified classes
+  const container = createElement('div', [
+    'hstack',
+    'gap-4',
+    'p-2',
+    'bg-primary',
+    'rounded',
+    'mb-3'
+  ])
+
+  // Create image element
+  const img = createElement('img', [], {
+    src: media[0] || '/src/assets/Image.svg',
+    alt: title,
+    width: '250',
+    height: '180',
+  })
+
+  // Create inner container div with specified classes
+  const innerContainer = createElement('div', ['vstack', 'gap-2'])
+
+  // Create title element
+  const titleElement = createElement('h4', [], {
+    textContent: title,
+  })
+
+  // Create description paragraph element
+  const descriptionElement = createElement('p', [], {
+    textContent: description,
+  })
+
+  // Create link element
+  const linkElement = createElement(
+    'a',
+    ['btn', 'btn-primary', 'btn-outline-light', 'align-self-start'],
+    {
+      href: `/pages/single-product.html?id=${id}`,
+    },
+  )
+  const linkSpan = createElement('span', [], {
+    textContent: 'View Listing',
+  })
+
+  // Append elements to inner container
+  innerContainer.appendChild(titleElement)
+  innerContainer.appendChild(descriptionElement)
+  linkElement.appendChild(linkSpan)
+  innerContainer.appendChild(linkElement)
+
+  // Append image and inner container to container
+  container.appendChild(img)
+  container.appendChild(innerContainer)
+
+  return container
 }

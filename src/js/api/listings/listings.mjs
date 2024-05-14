@@ -4,12 +4,13 @@ import { headers } from '../../headers.mjs'
 export async function getListings({
   _bids = true,
   _seller = true,
-  limit = 21,
+  limit = 20,
   offset = 0,
   sortOrder = 'desc',
+  _active = true,
 } = {}) {
   const response = await fetch(
-    `${LISTINGS_URL}?_bids=${_bids}&_seller=${_seller}&limit=${limit}&offset=${offset}&sortOrder=${sortOrder}`,
+    `${LISTINGS_URL}?_bids=${_bids}&_seller=${_seller}&limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_active=${_active}`,
     {
       method: 'get',
       headers: headers('application/json'),
@@ -62,8 +63,8 @@ export async function addListing(listing) {
   }
 }
 
-export async function placeBid(id, amount) {
-  const response = await fetch(`${LISTINGS_URL}/${id}/bids`, {
+export async function placeBid(id, amount,{_seller=true,_bids=true}={}) {
+  const response = await fetch(`${LISTINGS_URL}/${id}/bids?_seller=${_seller}&_bids=${_bids}`, {
     method: 'post',
     headers: headers('application/json'),
     body: JSON.stringify({ amount }),

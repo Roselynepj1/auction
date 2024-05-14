@@ -5,12 +5,15 @@ import { hideElement, showElement } from '../utilities.mjs'
 document.addEventListener('DOMContentLoaded', () => {
   const listingsPlaceholders = document.getElementById('listings-placeholder')
   const listingsDisplayArea = document.getElementById('listings-display-area')
+  const loadMore = document.getElementById('load-more')
+  const loader = document.getElementById('status-loader')
+  let offset = 0
+  const limit = 20
 
   getListings()
-    .then((listings) => {
+    .then((listings) => { 
       listings.forEach((listing) => {
-        const listingElement = createProductElement(listing)
-        listingsDisplayArea.append(listingElement)
+        listingsDisplayArea.append(createProductElement(listing))
       })
 
       showElement(listingsDisplayArea)
@@ -19,4 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     .finally(() => {
       hideElement(listingsPlaceholders)
     })
+
+  loadMore.addEventListener('click', () => {
+    offset += limit
+    showElement(loader)
+    getListings({ limit, offset })
+      .then((listings) => {
+        listings.forEach((listing) => {
+          const listingElement = createProductElement(listing)
+          listingsDisplayArea.append(listingElement)
+        })
+      })
+      .catch(() => {})
+      .finally(() => hideElement(loader))
+  })
 })

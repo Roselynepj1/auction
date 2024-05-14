@@ -303,11 +303,23 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-8">
+          <div class="col-sm-12 col-md-12 col-lg-8">
             <p>Showing 20 Items</p>
             <div class="row mb-5" id="listings-display-area"></div>
+            <div class="text-center">
+              <button class="btn btn-primary" id="load-more">
+                <div
+                  class="spinner-border spinner-border-sm d-none"
+                  role="status"
+                  id="status-loader"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <span>Load more products</span>
+              </button>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-4 col-lg-4">
+          <div class="col-sm-12 col-md-12 col-lg-4">
             <form
               id="shop-form"
               class="blur border border-1 border-primary-subtle rounded p-4"
@@ -332,7 +344,9 @@
                   >
                     <div class="accordion-body">
                       <select name="sortBy" id="sortBy" class="form-control">
-                        <option value="">Select</option>
+                        <option value="" selected disabled>Select</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
                       </select>
                     </div>
                   </div>

@@ -196,3 +196,50 @@ export function updateCountdownTimer(
     }
   }, 1000)
 }
+
+/**
+ * Adds a scroll event listener to an element.
+ * @param {HTMLElement} element - The HTML element to attach the scroll event listener to.
+ * @param {Function} callback - The callback function to execute when scrolling to the bottom of the element.
+ */
+export const addScrollMoreEvent = (element,callback)=>{
+  element.addEventListener('scroll', function () {
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      callback()
+    }
+  })
+}
+
+/**
+ * Creates a table row with table data elements.
+ * @param {string} bidderName - The name of the bidder.
+ * @param {Date} created - The date when the bid was created.
+ * @param {number} amount - The amount of the bid.
+ * @returns {HTMLTableRowElement} The created table row element.
+ */
+export function createBidTableRow(bidderName, created, amount) {
+  // Create table row
+  const tr = createElement('tr', [], {});
+
+  // Create table data for bidder name
+  const td1 = createElement('td', ['text-center'], {
+    textContent: bidderName,
+  });
+  // Create table data for formatted date
+  const td2 = createElement('td', ['text-center'], {
+    textContent: formatDate(created),
+  });
+  // Create table data for bid amount
+  const td3 = createElement('td', ['text-center'], {
+    textContent: amount,
+  });
+
+  // Append table data to table row
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+
+  return tr;
+}
+
+ 
