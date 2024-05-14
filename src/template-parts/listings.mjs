@@ -253,20 +253,26 @@ export function createProductCard(listing) {
   const { media, title, description, id } = listing
   // Create container div with specified classes
   const container = createElement('div', [
-    'hstack',
-    'gap-4',
-    'p-2',
+    'row', 
     'bg-primary',
     'rounded',
     'mb-3',
+    'p-4'
+  ])
+  const imgColumn = createElement('div', [
+    'col-2', 
+  ])
+  const detailsColumn = createElement('div', [
+    'col-10', 
   ])
 
   // Create image element
-  const img = createElement('img', [], {
+  const img = createElement('img', ['img-fluid'], {
     src: media[0] || '/src/assets/Image.svg',
     alt: title,
-    width: '250',
-    height: '180',
+    width: '250', // Set fixed width
+    height: '180', // Set fixed height
+    style: 'max-width: 100%; max-height: 180px; object-fit: cover;',
   })
 
   // Create inner container div with specified classes
@@ -301,8 +307,11 @@ export function createProductCard(listing) {
   innerContainer.appendChild(linkElement)
 
   // Append image and inner container to container
-  container.appendChild(img)
-  container.appendChild(innerContainer)
+  imgColumn.appendChild(img)
+  detailsColumn.appendChild(innerContainer)
+  container.appendChild(imgColumn)
+  container.appendChild(detailsColumn)
+ 
 
   return container
 }

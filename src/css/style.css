@@ -11891,6 +11891,7 @@ footer .footer-social-icons:hover {
 .navbar {
   backdrop-filter: blur(4px);
   border-bottom: solid 1px #343659;
+  z-index: 999999999;
 }
 
 .welcome-section {

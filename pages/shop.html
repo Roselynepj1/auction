@@ -228,7 +228,11 @@
     </nav>
     <main class="content">
       <div class="container my-5">
-        <div class="row" id="listings-placeholder">
+        
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <p>Showing 20 Items</p>
+            <div class="row" id="listings-placeholder">
           <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
             <div
               class="p-4 rounded border border-1 border-primary-subtle placeholder-wave"
@@ -302,9 +306,6 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-8">
-            <p>Showing 20 Items</p>
             <div class="row mb-5" id="listings-display-area"></div>
             <div class="text-center">
               <button class="btn btn-primary" id="load-more">
@@ -319,10 +320,10 @@
               </button>
             </div>
           </div>
-          <div class="col-sm-12 col-md-12 col-lg-4">
+          <div class="col-sm-12 col-md-12 col-lg-4" >
             <form
               id="shop-form"
-              class="blur border border-1 border-primary-subtle rounded p-4"
+              class="blur border border-1 border-primary-subtle rounded p-4  sticky-md-top"
             >
               <div class="accordion mb-3">
                 <div class="accordion-item">
@@ -339,15 +340,18 @@
                     </button>
                   </h2>
                   <div
-                    id="sortBy-accordion"
+                    id="sortby-accordion"
                     class="accordion-collapse collapse show"
                   >
                     <div class="accordion-body">
-                      <select name="sortBy" id="sortBy" class="form-control">
-                        <option value="" selected disabled>Select</option>
+                      <select name="sortby" id="sortby" class="form-control"> 
                         <option value="asc">Ascending</option>
                         <option value="desc">Descending</option>
                       </select>
+                      <div
+                        class="form-text invalid-text"
+                        id="sortby-helper"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -359,30 +363,28 @@
                       class="accordion-button"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#tags-accordion"
+                      data-bs-target="#tag-accordion"
                       aria-expanded="true"
-                      aria-controls="tags-accordion"
+                      aria-controls="tag-accordion"
                     >
-                      Product Tags
+                      Product Tag
                     </button>
                   </h2>
                   <div
-                    id="tags-accordion"
+                    id="tag-accordion"
                     class="accordion-collapse collapse show"
                   >
                     <div class="accordion-body">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="tag1"
-                          checked
-                        />
-                        <label class="form-check-label" for="tag1">
-                          Tag 1
-                        </label>
-                      </div>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="tag"
+                        id="tag"
+                      />
+                      <div
+                        class="form-text invalid-text"
+                        id="tag-helper"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -411,6 +413,8 @@
                           <input
                             type="number"
                             min="0"
+                            value="0"
+                            name="bid-from"
                             class="form-control"
                             placeholder="From"
                             aria-label="From"
@@ -419,6 +423,8 @@
                         <div class="col">
                           <input
                             type="number"
+                            name="bid-to"
+                            value="100"
                             min="0"
                             class="form-control"
                             placeholder="To"
@@ -426,12 +432,24 @@
                           />
                         </div>
                       </div>
+                      <div
+                        class="form-text invalid-text"
+                        id="bid-amount-helper"
+                      ></div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <button class="btn btn-primary" type="submit">Filter</button>
+              <button class="btn btn-primary" type="submit">
+                <div
+                  class="spinner-border spinner-border-sm d-none"
+                  role="status"
+                  id="status-loader-item"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <span>Filter</span>
+              </button>
             </form>
           </div>
         </div>

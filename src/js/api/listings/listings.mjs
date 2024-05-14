@@ -8,9 +8,10 @@ export async function getListings({
   offset = 0,
   sortOrder = 'desc',
   _active = true,
+  _tag = null,
 } = {}) {
   const response = await fetch(
-    `${LISTINGS_URL}?_bids=${_bids}&_seller=${_seller}&limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_active=${_active}`,
+    `${LISTINGS_URL}?_bids=${_bids}&_seller=${_seller}&limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_active=${_active}${_tag ? '&_tag=' + _tag : ''}`,
     {
       method: 'get',
       headers: headers('application/json'),
