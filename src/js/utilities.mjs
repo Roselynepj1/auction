@@ -139,3 +139,60 @@ export function formatDate(dateString) {
 
   return `${formattedDate}, ${formattedTime}`
 }
+
+/**
+ * Calculates the remaining time from the current time until the end date.
+ * @param {string} endDate - The end date in ISO 8601 format.
+ * @returns {object} An object containing the remaining time values (days, hours, minutes, seconds).
+ */
+export function calculateTimeRemaining(endDate) {
+  const currentTime = new Date()
+  const endTime = new Date(endDate)
+
+  // Check if the current time is past the end time
+  if (currentTime > endTime) {
+    // Auction has ended, return null or handle accordingly
+    return null
+  }
+
+  let timeDifference = endTime - currentTime
+
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+  const hours = Math.floor(
+    (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+  )
+  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000)
+
+  return { days, hours, minutes, seconds }
+}
+
+/**
+ * Updates the countdown timer every second.
+ * @param {string} endDate - The end date in ISO 8601 format.
+ * @param {HTMLElement} dayElement - The HTML element to display remaining days.
+ * @param {HTMLElement} hourElement - The HTML element to display remaining hours.
+ * @param {HTMLElement} minElement - The HTML element to display remaining minutes.
+ * @param {HTMLElement} secElement - The HTML element to display remaining seconds.
+ */
+export function updateCountdownTimer(
+  endDate,
+  dayElement,
+  hourElement,
+  minElement,
+  secElement,
+) {
+  const timerInterval = setInterval(() => {
+    const { days, hours, minutes, seconds } = calculateTimeRemaining(endDate)
+
+    dayElement.textContent = days < 10 ? '0' + days : days
+    hourElement.textContent = hours < 10 ? '0' + hours : hours
+    minElement.textContent = minutes < 10 ? '0' + minutes : minutes
+    secElement.textContent = seconds < 10 ? '0' + seconds : seconds
+
+    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+      clearInterval(timerInterval)
+      // Optionally, perform any action when the countdown timer reaches zero
+    }
+  }, 1000)
+}

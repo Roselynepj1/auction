@@ -4,9 +4,9 @@ import { headers } from '../../headers.mjs'
 export async function getListings({
   _bids = true,
   _seller = true,
-  limit = 20,
+  limit = 21,
   offset = 0,
-  sortOrder = 'DESC',
+  sortOrder = 'desc',
 } = {}) {
   const response = await fetch(
     `${LISTINGS_URL}?_bids=${_bids}&_seller=${_seller}&limit=${limit}&offset=${offset}&sortOrder=${sortOrder}`,
@@ -55,6 +55,23 @@ export async function addListing(listing) {
   if (response.ok) {
     const listing = await response.json()
     return listing
+  } else {
+    // Handle error response
+    const errorResponse = await response.json()
+    throw new Error(errorResponse.errors[0].message || response.statusText)
+  }
+}
+
+export async function placeBid(id, amount) {
+  const response = await fetch(`${LISTINGS_URL}/${id}/bids`, {
+    method: 'post',
+    headers: headers('application/json'),
+    body: JSON.stringify({ amount }),
+  })
+
+  if (response.ok) {
+    const bid = await response.json()
+    return bid
   } else {
     // Handle error response
     const errorResponse = await response.json()

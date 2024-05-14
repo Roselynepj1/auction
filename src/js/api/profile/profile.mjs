@@ -24,8 +24,8 @@ export async function getProfile(username) {
   })
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const profile = await response.json()
+    return profile
   } else {
     // Handle error response
     const errorResponse = await response.json()
@@ -40,8 +40,8 @@ export async function getProfiles() {
   })
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const profiles = await response.json()
+    return profiles
   } else {
     // Handle error response
     const errorResponse = await response.json()
@@ -56,8 +56,8 @@ export async function getProfileListings(username) {
   })
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const listings = await response.json()
+    return listings
   } else {
     // Handle error response
     const errorResponse = await response.json()
@@ -72,8 +72,8 @@ export async function getProfileBids(username) {
   })
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const bids = await response.json()
+    return bids
   } else {
     // Handle error response
     const errorResponse = await response.json()
@@ -89,8 +89,8 @@ export async function updateProfileMedia(username, media) {
   })
 
   if (response.ok) {
-    const credits = await response.json()
-    return credits
+    const profile = await response.json()
+    return profile
   } else {
     // Handle error response
     const errorResponse = await response.json()

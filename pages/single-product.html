@@ -28,7 +28,7 @@
     <!-- Loader -->
     <nav class="navbar sticky-top">
       <div class="container py-2">
-        <a href="./index.html">
+        <a href="/index.html">
           <img src="/src/assets/logo.svg" alt="Site Logo" />
           <img src="/src/assets/logo-text.svg" alt="Site Name" />
         </a>
@@ -36,28 +36,28 @@
         <div class="hstack gap-4 d-none d-sm-none d-md-none d-lg-flex">
           <a
             class="hstack text-decoration-none text-white gap-2 align-items-center"
-            href="./index.html"
+            href="/index.html"
           >
             <img src="/src/assets/Home-Icon.svg" alt="Home Icon" />
             <span>Home</span>
           </a>
           <a
             class="hstack text-decoration-none text-white gap-2 align-items-center"
-            href="./index.html"
+            href="/pages/shop.html"
           >
             <img src="/src/assets/Online-Icon.svg" alt="Online Icon" />
             <span>Auctions</span>
           </a>
           <a
             class="hstack text-decoration-none text-white gap-2 align-items-center"
-            href="./index.html"
+            href="/pages/about.html"
           >
             <img src="/src/assets/About-Icon.svg" alt="About Icon" />
             <span>About</span>
           </a>
           <a
             class="hstack text-decoration-none text-white gap-2 align-items-center"
-            href="./index.html"
+            href="/pages/contact.html"
           >
             <img src="/src/assets/Contact-Icon.svg" alt="Contact Icon" />
             <span>Contact</span>
@@ -158,25 +158,25 @@
       <div class="vstack gap-4 justify-content-end align-items-center">
         <a
           class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
-          href="./index.html"
+          href="/index.html"
         >
           <span>Home</span>
         </a>
         <a
           class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
-          href="./index.html"
+          href="/pages/shop.html"
         >
           <span>Auctions</span>
         </a>
         <a
           class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
-          href="./index.html"
+          href="/pages/about.html"
         >
           <span>About</span>
         </a>
         <a
           class="hstack align-items-center justify-content-center text-decoration-none text-white gap-2 align-items-center"
-          href="./index.html"
+          href="/pages/contact.html"
         >
           <span>Contact</span>
         </a>
@@ -229,79 +229,66 @@
             src="/src/assets/Arrow-Greater.svg"
             alt="Greater han arrow icon"
           />
-          <span id="single-product-breadcrumb"></span>
+          <span id="single-product-breadcrumb">Single Product</span>
         </div>
       </div>
     </nav>
     <main class="content">
-      <div class="container my-5">
+      <div class="container my-5" id="listing-placeholders">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 placeholder-wave">
+            <span style="height: 310px" class="placeholder rounded w-100"
+              >&nbsp;</span
+            >
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 placeholder-wave">
+            <span class="placeholder rounded col-4 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-12 mb-2">&nbsp;</span>
+            <span class="placeholder rounded col-4 mb-2">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+      <div class="container my-5 d-none" id="listing-item">
         <div class="row mb-5">
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="featured-image mb-3">
               <img
-                src="/src/assets/electronics-product-06-600x600.jpg"
-                class="object-fit-cover p-4 border border-1 border-primary-subtle rounded bg-primary-subtle"
+                src="/src/assets/Image.svg"
+                style="height: 500px"
+                class="object-fit-cover img-fluid p-4 border border-1 border-primary-subtle rounded bg-primary-subtle"
                 alt=""
-                height="500"
                 id="listing-featured-img"
               />
             </div>
-            <div
-              class="other-images hstack flex-wrap gap-3"
-              id="listing-other-images"
-            >
-              <img
-                src="/src/assets/electronics-product-10-600x600.jpg"
-                class="rounded"
-                width="100"
-                height="100"
-                alt=""
-              />
-              <img
-                src="/src/assets/electronics-product-10-600x600.jpg"
-                class="rounded"
-                width="100"
-                height="100"
-                alt=""
-              />
-              <img
-                src="/src/assets/electronics-product-10-600x600.jpg"
-                class="rounded"
-                width="100"
-                height="100"
-                alt=""
-              />
-              <img
-                src="/src/assets/electronics-product-10-600x600.jpg"
-                class="rounded"
-                width="100"
-                height="100"
-                alt=""
-              />
-            </div>
+            <div class="other-images row" id="listing-other-images"></div>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-6">
-            <h4 id="listing-title">4K TV and Audio Equipment</h4>
-            <p id="listing-total-bids">20 Total bids</p>
+            <h4 id="listing-title"></h4>
+            <p><span id="listing-total-bids"></span> Total bids</p>
             <hr />
-            <p id="listing-description">
-              Dive into the world of cutting-edge gaming hardware with our
-              “Gaming Paradise” auction. From powerful graphics cards to
-              lightning-fast SSDs and high-refresh-rate monitors, this event is
-              a haven for gamers seeking to level up their setups. Whether
-              you're a competitive esports player.
-            </p>
+            <p id="listing-description"></p>
             <hr />
             <h4>Time Left</h4>
+            <h4
+              id="auction-end"
+              class="d-none blur p-2 border border-1 rounded border-primary-subtle text-center"
+            >
+              Auction Ended
+            </h4>
             <div
+              id="auction-timer"
               class="mb-3 blur p-2 border border-1 rounded border-primary-subtle bg-primary col-sm-12 col-md-12 col-lg-8"
             >
               <div class="product-date hstack">
-                <div
-                  class="vstack justify-content-center align-items-center"
-                  id="listing-date-day"
-                >
-                  <h6 class="value">04</h6>
+                <div class="vstack justify-content-center align-items-center">
+                  <h6 class="value" id="listing-date-day">04</h6>
                   <h6 class="type mb-0">DAY</h6>
                 </div>
                 <div class="vstack date-sep">
@@ -310,11 +297,8 @@
                     alt="More Verticle Icon"
                   />
                 </div>
-                <div
-                  class="vstack justify-content-center align-items-center"
-                  id="listing-date-hour"
-                >
-                  <h6 class="value">04</h6>
+                <div class="vstack justify-content-center align-items-center">
+                  <h6 class="value" id="listing-date-hour">04</h6>
                   <h6 class="type mb-0">HRS</h6>
                 </div>
                 <div class="vstack date-sep">
@@ -323,11 +307,8 @@
                     alt="More Verticle Icon"
                   />
                 </div>
-                <div
-                  class="vstack justify-content-center align-items-center"
-                  id="listing-date-min"
-                >
-                  <h6 class="value">04</h6>
+                <div class="vstack justify-content-center align-items-center">
+                  <h6 class="value" id="listing-date-min">04</h6>
                   <h6 class="type mb-0">MIN</h6>
                 </div>
                 <div class="vstack date-sep">
@@ -336,11 +317,8 @@
                     alt="More Verticle Icon"
                   />
                 </div>
-                <div
-                  class="vstack justify-content-center align-items-center"
-                  id="listing-date-sec"
-                >
-                  <h6 class="value">04</h6>
+                <div class="vstack justify-content-center align-items-center">
+                  <h6 class="value" id="listing-date-sec">04</h6>
                   <h6 class="type mb-0">SEC</h6>
                 </div>
               </div>
@@ -366,7 +344,14 @@
                     class="btn btn-primary w-100 d-none"
                     id="place-bid-btn"
                   >
-                    Place bid now
+                    <div
+                      class="spinner-border spinner-border-sm d-none"
+                      role="status"
+                      id="status-loader"
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <span>Place bid now</span>
                   </button>
                   <a
                     href="/pages/login.html"
@@ -376,18 +361,41 @@
                   >
                 </div>
               </div>
+              <div id="bid-helper" class="form-text invalid-text"></div>
+              <div
+                class="alert alert-danger mb-3 d-none"
+                id="error"
+                tabindex="20"
+              ></div>
+              <div
+                class="alert alert-success mb-3 d-none"
+                id="success"
+                tabindex="21"
+              ></div>
             </form>
           </div>
         </div>
 
         <div class="row">
+          <h4>Total Bids Placed</h4>
           <div class="table-responsive">
             <table class="table table-bordered border-primary">
+              <thead>
+                <tr>
+                  <th class="text-center">Bidder Name</th>
+                  <th class="text-center">Bid Date</th>
+                  <th class="text-center">Bid Amount (Credits)</th>
+                </tr>
+              </thead>
               <tbody id="all-bidders"></tbody>
               <tfoot>
                 <tr>
-                  <td>Auction Started</td>
-                  <td colspan="2" id="listing-date-created"></td>
+                  <td class="text-center">Auction Started</td>
+                  <td
+                    colspan="2"
+                    id="listing-date-created"
+                    class="text-center"
+                  ></td>
                 </tr>
               </tfoot>
             </table>

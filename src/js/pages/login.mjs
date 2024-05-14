@@ -33,19 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showErrorMsg = (message) => {
       error.innerHTML = message
-      loader.classList.add('d-none')
-      error.classList.remove('d-none')
+      hideElement(loader) 
+      showElement(error) 
+      error.focus()
     }
-
+    
     const hideErrorMsg = () => {
-      error.classList.add('d-none')
+      hideElement(error)
     }
     //Success form submission
     const success = () => {
       hideErrorMsg()
-      loader.classList.add('d-none')
+      hideElement(loader) 
       signupForm.reset()
     }
+    
 
     if (!validateLength(email)) {
       emailHelper.textContent = 'Email is required'
