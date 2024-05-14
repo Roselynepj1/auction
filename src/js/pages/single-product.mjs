@@ -5,7 +5,7 @@ import {
   getSearchParams,
   updateCountdownTimer,
   calculateTimeRemaining,
-  createElement
+  createElement,
 } from '../utilities.mjs'
 import { getListing, placeBid } from '../api/listings/listings.mjs'
 import { profile, isLoggedIn } from '../api/auth/state.mjs'
@@ -52,7 +52,7 @@ function placeBidValidation() {
     successMsg.focus()
   }
 
-   if (bid <= 0) {
+  if (bid <= 0) {
     errors['bid'] = true
     bidHelper.textContent = 'Bid value cannot be less than or equal to zero'
   } else if (bid > 1000) {

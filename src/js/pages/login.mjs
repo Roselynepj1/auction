@@ -33,21 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showErrorMsg = (message) => {
       error.innerHTML = message
-      hideElement(loader) 
-      showElement(error) 
+      hideElement(loader)
+      showElement(error)
       error.focus()
     }
-    
+
     const hideErrorMsg = () => {
       hideElement(error)
     }
     //Success form submission
     const success = () => {
       hideErrorMsg()
-      hideElement(loader) 
+      hideElement(loader)
       signupForm.reset()
     }
-    
 
     if (!validateLength(email)) {
       emailHelper.textContent = 'Email is required'
