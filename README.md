@@ -1,4 +1,4 @@
-<h1><img src="./src/assets/Logo.svg" alt="Click & Claim Logo" width="32" height="32"> Click & Claim</h1>
+<h1><img src="./src/assets/logo.svg" alt="Click & Claim Logo" width="32" height="32"> Click & Claim</h1>
 
 Experience the thrill of rapid transactions at Click & Claim, where
 selling and claiming happen at lightning speed. List your items with
