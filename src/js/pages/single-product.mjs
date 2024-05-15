@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const { name } = profile()
           getCredits(name)
             .then((res) => {
-              updateLoggedInUser(res.credits)
+              updateLoggedInUser('credits', res.credits)
             })
             .catch((error) => console.error(error))
           //hide successMsg after 2 seconds

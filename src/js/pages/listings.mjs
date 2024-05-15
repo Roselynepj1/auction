@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getProfileListings(name)
       .then((listings) => {
         if (listings.length === 0) {
+          console.log('Section executed', noListings)
           showElement(noListings)
         } else {
           listings.forEach((listing) => {
