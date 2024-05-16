@@ -12,3 +12,4 @@ assets
 .prettierignore
 package.json
 package-lock.json
+*.min.js
