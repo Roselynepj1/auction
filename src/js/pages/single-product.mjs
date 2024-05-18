@@ -167,14 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
           hideElement(auctionTimer)
           hideElement(placeBidForm)
         }
-        //sort bids
-        bids.sort((a, b) => b.amount - a.amount)
-        //show all bidders
 
-        bids.forEach((bid) => {
-          const tr = createBidTableRow(bid.bidderName, bid.created, bid.amount)
-          allBidders.append(tr)
-        })
+        if (isLoggedIn()) {
+          //sort bids
+          bids.sort((a, b) => b.amount - a.amount)
+          //show all bidders
+
+          bids.forEach((bid) => {
+            const tr = createBidTableRow(
+              bid.bidderName,
+              bid.created,
+              bid.amount,
+            )
+            allBidders.append(tr)
+          })
+        }
+
         //The user who created a listing can not bid on it
         if (isLoggedIn()) {
           //get currently logged in user
